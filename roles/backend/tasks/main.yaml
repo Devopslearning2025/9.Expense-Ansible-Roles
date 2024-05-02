@@ -52,7 +52,7 @@
 - name: check db connection
   community.mysql.mysql_db:
     login_user: "{{ login_user }}"
-    login_password: "{{ logn_password }}"
+    login_password: "{{ login_password }}"
     login_host: "{{ Login_db }}"
     target: /app/schema/backend.sql
     state: import
