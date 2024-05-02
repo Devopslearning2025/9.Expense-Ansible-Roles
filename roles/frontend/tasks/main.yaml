@@ -12,7 +12,7 @@
 - name: run app pre-requisites
   ansible.builtin.import_role:
     name: common
-    tasks: app-pre-req
+    tasks_from: app-pre-req
 
 #if there is change in configuration only then we need to do restart
 - name: copy the conf file
