@@ -1,4 +1,4 @@
-- name: installing and configring the backend
+- name: configuring backend server
   hosts: backend
   become: yes
   roles:
