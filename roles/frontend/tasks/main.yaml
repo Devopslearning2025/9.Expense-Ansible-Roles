@@ -1,0 +1,37 @@
+- name: nginx install
+  ansible.builtin.dnf:
+    name: nginx
+    state: installed
+    
+- name: starting the nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: delete default website  
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/
+    state: absent
+
+- name: Create html directory
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/
+    state: directory
+
+- name: Download and Extract the frontend content.
+  ansible.builtin.unarchive:
+    src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+    dest: /usr/share/nginx/html/
+    remote_src: yes
+
+- name: copy the conf file
+  ansible.builtin.copy:
+    src: expense.conf
+    dest: /etc/nginx/default.d/expense.conf
+        
+- name: Restart Nginx Service 
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+
