@@ -51,9 +51,9 @@
 
 - name: check db connection
   community.mysql.mysql_db:
-    login_user: "{{ login_user }}"
-    login_password: "{{ login_password }}"
-    login_host: "{{ Login_db }}"
+    login_user: "{{ login_db_user }}"
+    login_password: "{{ Login_db_password }}"
+    login_host: "{{ Login_db_host }}"
     target: /app/schema/backend.sql
     state: import
     name: all

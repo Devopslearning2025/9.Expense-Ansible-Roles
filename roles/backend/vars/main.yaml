@@ -1,4 +1,4 @@
-login_user: root
-Login_password: ExpenseApp@1
+login_db_user: root
+Login_db_password: ExpenseApp@1
 #Login_db: db.devopslearning2025.online
-Login_host: db.devopslearning2025.online
+Login_db_host: db.devopslearning2025.online
