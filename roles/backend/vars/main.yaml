@@ -2,5 +2,5 @@ login_db_user: root
 Login_db_password: ExpenseApp@1
 #Login_db: db.devopslearning2025.online
 Login_db_host: db.devopslearning2025.online
-App_dir: /app
+App_Location: /app
 component: backend
