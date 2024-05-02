@@ -1,1 +1,5 @@
-- name: 
+- name: nginx installation and configireation with backend
+  hosts: frontend
+  become: yes
+  roles:
+  - frontend

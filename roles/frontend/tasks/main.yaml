@@ -25,13 +25,16 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
+#if there is change in configuration only then we need to do restart
 - name: copy the conf file
-  ansible.builtin.copy:
-    src: expense.conf
+  ansible.builtin.template:
+    src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
-        
-- name: Restart Nginx Service 
-  ansible.builtin.service:
-    name: nginx
-    state: restarted
+  notify: 
+  - Restart Nginx Service 
 
+#handlers are notifier when there is change in conf then notify to restart the nginx service
+#- name: Restart Nginx Service 
+#  ansible.builtin.service:
+#    name: nginx
+#    state: restarted
